@@ -1,0 +1,18 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title"><span ng-bind-html="alertDetails.title"></span></h3>
+	</div>
+	<div class="panel-body"> 
+		<div><strong>Category</strong>: {{alertDetails.category | recallCategory}}</div>
+
+			<div class="panel panel-default" ng-repeat="panel in alertDetails.panels">
+				<div class="panel-heading">
+					<h4 class="panel-title">{{panel.title}}</h4>
+				</div>
+				<div class="panel-body">
+					<div ng-bind-html="panel.text"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

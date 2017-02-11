@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h2 class="panel-title">Most recent recalls</h2>
+	</div>
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						<sort-recall-list-field upsort="setSortOrder('+recallId')" downsort="setSortOrder('-recallId')" title="Recall ID"></sort-recall-list-field>
+					</th>
+					<th>
+						<sort-recall-list-field upsort="setSortOrder('+title')" downsort="setSortOrder('-title')" title="Title"></sort-recall-list-field>
+					</th>
+					<th>
+						<sort-recall-list-field upsort="setSortOrder('+category')" downsort="setSortOrder('-category')" title="Categories"></sort-recall-list-field>
+					</th>
+					<th>
+						<sort-recall-list-field upsort="setSortOrder('+date_published')" downsort="setSortOrder('-date_published')"  title="Date of Publication"></sort-recall-list-field>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="alert in alerts | orderBy:sortOrder">
+					<td><strong><a href="/#!/{{alert.recallId}}">{{ alert.recallId }}</a></strong></td>
+					<td>{{ alert.title }}</td>
+					<td>{{ alert.category | recallCategory }}</td>
+					<td>{{ alert.date_published * 1000 | date:medium }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
